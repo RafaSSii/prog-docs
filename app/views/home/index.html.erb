@@ -7,8 +7,10 @@
     Plataforma para organizar e acessar documentações de linguagens de programação.
   </p>
 
-  <div class="flex gap-4">
-    <%= link_to "Ver Linguagens", "#", class: "bg-blue-500 hover:bg-blue-600 px-6 py-3 rounded-xl font-semibold transition" %>
-    <%= link_to "Cadastrar Linguagem", "#", class: "bg-gray-700 hover:bg-gray-600 px-6 py-3 rounded-xl font-semibold transition" %>
-  </div>
+  <% if user_signed_in? %>
+    <div class="flex gap-4">
+      <%= link_to "Painel Admin", admin_languages_path,
+                  class: "bg-blue-500 hover:bg-blue-600 px-6 py-3 rounded-xl font-semibold transition" %>
+    </div>
+  <% end %>
 </div>
