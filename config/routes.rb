@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'languages/index'
+  get 'languages/show'
   get 'home/index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -8,4 +10,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "home#index"
+
+  resources :languages, only: [:index, :show]
+
+  namespace :admin do
+    resources :languages
+  end
 end
