@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, skip: [:registrations]
   get 'languages/index'
   get 'languages/show'
   get 'home/index'
@@ -15,6 +15,6 @@ Rails.application.routes.draw do
   resources :languages, only: [:index, :show]
 
   namespace :admin do
-    resources :languages, only: [:new, :create]
+    resources :languages, only: [:new, :create, :destroy]
   end
 end

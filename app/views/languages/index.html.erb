@@ -6,20 +6,29 @@
   <% @languages.each do |language| %>
     <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:scale-105 transition">
 
-      <!-- TÍTULO -->
       <h2 class="text-2xl font-semibold mb-2 text-white">
         <%= language.title %>
       </h2>
 
-      <!-- DESCRIÇÃO -->
       <p class="text-gray-400 mb-4">
         <%= truncate(language.description, length: 100) %>
       </p>
 
-      <!-- LINK -->
-      <%= link_to "Ver detalhes",
-                  language_path(language),
-                  class: "text-blue-400 hover:underline" %>
+      <div class="flex justify-between items-center">
+
+        <%= link_to "Ver detalhes",
+                    language_path(language),
+                    class: "text-blue-400 hover:underline" %>
+
+        <% if user_signed_in? %>
+          <%= button_to "Excluir",
+                        admin_language_path(language),
+                        method: :delete,
+                        data: { confirm: "Tem certeza que deseja excluir?" },
+                        class: "bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-sm" %>
+        <% end %>
+
+      </div>
 
     </div>
   <% end %>
