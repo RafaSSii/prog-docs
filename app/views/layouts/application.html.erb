@@ -32,12 +32,9 @@
 
       <% if user_signed_in? %>
 
-        <%= link_to "Admin", admin_languages_path,
-                    class: "bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg font-semibold transition" %>
-
         <%= link_to "Logout", destroy_user_session_path,
                     data: { turbo_method: :delete },
-                    class: "hover:text-red-400 transition" %>
+                    class: "bg-red-500 hover:bg-red-600 px-4 py-2 rounded-lg font-semibold transition" %>
 
         <%= link_to "Nova Linguagem",
                     new_admin_language_path,
@@ -46,7 +43,7 @@
       <% else %>
 
         <%= link_to "Login", new_user_session_path,
-                    class: "hover:text-blue-400 transition" %>
+                    class: "bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg font-semibold transition" %>
 
       <% end %>
 
