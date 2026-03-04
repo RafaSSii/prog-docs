@@ -15,6 +15,6 @@ Rails.application.routes.draw do
   resources :languages, only: [:index, :show]
 
   namespace :admin do
-    resources :languages
+    resources :languages, only: [:new, :create]
   end
 end

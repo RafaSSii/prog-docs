@@ -5,16 +5,22 @@
 <div class="grid md:grid-cols-3 gap-6">
   <% @languages.each do |language| %>
     <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:scale-105 transition">
-      <h2 class="text-2xl font-semibold mb-2">
-        <%= language.name %>
+
+      <!-- TÍTULO -->
+      <h2 class="text-2xl font-semibold mb-2 text-white">
+        <%= language.title %>
       </h2>
 
+      <!-- DESCRIÇÃO -->
       <p class="text-gray-400 mb-4">
         <%= truncate(language.description, length: 100) %>
       </p>
 
-      <%= link_to "Ver detalhes", language_path(language),
+      <!-- LINK -->
+      <%= link_to "Ver detalhes",
+                  language_path(language),
                   class: "text-blue-400 hover:underline" %>
+
     </div>
   <% end %>
 </div>

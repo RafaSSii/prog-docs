@@ -39,6 +39,10 @@
                     data: { turbo_method: :delete },
                     class: "hover:text-red-400 transition" %>
 
+        <%= link_to "Nova Linguagem",
+                    new_admin_language_path,
+                    class: "bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg font-semibold transition" %>
+
       <% else %>
 
         <%= link_to "Login", new_user_session_path,

@@ -1,0 +1,33 @@
+<div class="max-w-3xl mx-auto bg-gray-800 p-8 rounded-xl shadow-lg">
+  <h1 class="text-2xl font-bold mb-6 text-blue-400">Nova Linguagem 🚀</h1>
+
+  <%= form_with model: [:admin, @language], local: true, html: { multipart: true } do |f| %>
+
+    <div class="mb-4">
+      <%= f.label :title, class: "block mb-2" %>
+      <%= f.text_field :title, class: "w-full p-2 rounded bg-gray-700 text-white" %>
+    </div>
+
+    <div class="mb-4">
+      <%= f.label :description, class: "block mb-2" %>
+      <%= f.text_area :description, rows: 4,
+                      class: "w-full p-2 rounded bg-gray-700 text-white" %>
+    </div>
+
+    <div class="mb-4">
+      <%= f.label :documentation_link, "Link da Documentação", class: "block mb-2" %>
+      <%= f.text_field :documentation_link,
+                       class: "w-full p-2 rounded bg-gray-700 text-white" %>
+    </div>
+
+    <div class="mb-6">
+      <%= f.label :documentation_file, "Upload PDF", class: "block mb-2" %>
+      <%= f.file_field :documentation_file,
+                       class: "w-full p-2 rounded bg-gray-700 text-white" %>
+    </div>
+
+    <%= f.submit "Salvar",
+                 class: "bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded font-semibold" %>
+
+  <% end %>
+</div>

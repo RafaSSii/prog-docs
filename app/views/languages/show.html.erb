@@ -1,18 +1,27 @@
 <div class="max-w-3xl mx-auto">
+
   <h1 class="text-4xl font-bold mb-4 text-blue-400">
-    <%= @language.name %>
+    <%= @language.title %>
   </h1>
 
   <p class="text-gray-400 mb-6">
-    Categoria: <span class="text-white"><%= @language.category %></span>
-  </p>
-
-  <p class="mb-6">
     <%= @language.description %>
   </p>
 
-  <%= link_to "Documentação Oficial",
-              @language.documentation_url,
-              target: "_blank",
-              class: "bg-blue-500 hover:bg-blue-600 px-6 py-3 rounded-lg font-semibold transition" %>
+  <% if @language.documentation_link.present? %>
+    <a href="<%= @language.documentation_link %>"
+       target="_blank"
+       class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg">
+      Ver Documentação 🌐
+    </a>
+  <% end %>
+
+  <% if @language.documentation_file.attached? %>
+    <div class="mt-4">
+      <%= link_to "Baixar PDF 📄",
+                  rails_blob_path(@language.documentation_file, disposition: "attachment"),
+                  class: "bg-green-500 hover:bg-green-600 px-4 py-2 rounded-lg" %>
+    </div>
+  <% end %>
+
 </div>
