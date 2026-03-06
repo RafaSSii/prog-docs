@@ -15,13 +15,4 @@
       Ver Documentação 🌐
     </a>
   <% end %>
-
-  <% if @language.documentation_file.attached? %>
-    <div class="mt-4">
-      <%= link_to "Baixar PDF 📄",
-                  rails_blob_path(@language.documentation_file, disposition: "attachment"),
-                  class: "bg-green-500 hover:bg-green-600 px-4 py-2 rounded-lg" %>
-    </div>
-  <% end %>
-
 </div>
